@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+
+  lenses:
+    image: lensesio/box:latest
+    container_name: lenses
+    ports:
+      - "9092:9092"
+      - "3030:3030"
+    environment:
+      ADV_HOST: localhost
+      EULA: "https://licenses.lenses.io/d/?id=ccf0ad8b-71f6-11ed-8f1e-42010af01003"
+

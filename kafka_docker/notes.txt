@@ -1,0 +1,16 @@
+docker run -e ADV_HOST=localhost \
+-e EULA="https://licenses.lenses.io/d/?id=ccf0ad8b-71f6-11ed-8f1e-42010af01003" \
+--rm \
+-p 3030:3030 \
+-p 9093:9092 \
+-p 9200:9200 \
+lensesio/box:latest
+
+
+
+
+
+docker run -e ADV_HOST=localhost \
+       -e EULA="https://licenses.lenses.io/d/?id=ea1816c7-723f-11ed-8f1e-42010af01003" \
+       --rm -p 3030:3030 -p 9093:9092 lensesio/box:latest
+
